@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./en/assets/scripts/app.js?");
+eval("//date\r\nconst date = new Date();\r\ndocument.querySelector('.year').innerHTML = date.getFullYear();\n\n//# sourceURL=webpack:///./en/assets/scripts/app.js?");
 
 /***/ })
 

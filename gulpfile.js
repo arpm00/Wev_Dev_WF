@@ -105,7 +105,7 @@ function watchTask() {
 //GBuild
 //Delete dist before compile
 function delDistFolder(){
-    return del('./dist')
+    return del('./dist-en')
 }
 
 function copyGeneralFiles(){
@@ -123,7 +123,7 @@ function copyGeneralFiles(){
         '!./en/pug/**'
     ]
     return src(pathToCopy)
-    .pipe(dest('./dist'))
+    .pipe(dest('./dist-en'))
 }
 
 //Minify Images
@@ -134,7 +134,7 @@ function imgMin(){
       interlays: true,
       multipass: true
     }))
-    .pipe(dest("./dist/assets/images"));
+    .pipe(dest("./dist-en/assets/images"));
 }
 
 //CSS and JS Minify
@@ -147,7 +147,7 @@ function minified(){
         },
         js: [ uglify(), rev()],
       }))
-        .pipe(dest('./dist'))
+        .pipe(dest('./dist-en'))
 }
 
 //Preview dist after build
@@ -156,7 +156,7 @@ function previewDist() {
     browserSync.init({
       notify: false,
       server: {
-        baseDir: './dist'
+        baseDir: './dist-en'
       }
     })
 }

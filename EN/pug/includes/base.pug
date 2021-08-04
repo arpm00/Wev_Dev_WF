@@ -1,6 +1,15 @@
 doctype html 
 html(lang='en')
     head 
-        meta 
-        title Website Title 
+        block head 
+            include head 
     body
+        block header
+
+        block content 
+
+        block footer 
+            include footer
+
+        block scripts 
+            include scripts 
