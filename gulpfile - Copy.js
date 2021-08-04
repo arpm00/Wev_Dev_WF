@@ -63,14 +63,15 @@ function css(){
     return src(srcFiles.css)
         .pipe(cssnano())
         .pipe(concat('libraries.min.css'))
+        .pipe(changed(destFiles.cssFiles))
         .pipe(dest(destFiles.cssFiles))
 }
 
 //JS 
 function js(){
     return src(srcFiles.js)
-        .pipe(uglify())
-        .pipe(concat('libraries.min.js'))
+        .pipe(concat('library.js'))
+        .pipe(changed(destFiles.jsFiles))
         .pipe(dest(destFiles.jsFiles))
 }
 
@@ -140,13 +141,11 @@ function imgMin(){
 function minified(){
     return src('./en/*.html')
     .pipe(usemin({
-        css: [ cssnano(), rev()],
-        css1: [ cssnano(), rev()],
+        css: [ rev()],
         jsAttributes: {
           async: true
         },
         js: [ uglify(), rev()],
-        js1: [ uglify(), rev()],
       }))
         .pipe(dest('./dist-en'))
 }
