@@ -1,4 +1,16 @@
 extends includes/base
 
 block content
-    h1 This is a test only
+    h1 Accordion 
+    .accordion#accordionExample 
+        .accordion-item
+            h2.accordion-header#headingOne 
+                button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne")
+                    | Accordion Item #1
+            #collapseOne.accordion-collapse.collapse.show(aria-labelledby="headingOne" data-bs-parent="#accordionExample")
+                .accordion-body 
+                    strong This is the first item's accordion body. 
+                    | It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        .accordion-item 
+            h2 Accordion Item #2
+            

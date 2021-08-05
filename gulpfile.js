@@ -61,16 +61,16 @@ function scssTask(){
 //CSS Merge and Minify
 function css(){
     return src(srcFiles.css)
-        .pipe(cssnano())
-        .pipe(concat('libraries.min.css'))
+        // .pipe(cssnano())
+        .pipe(concat('lib.css'))
         .pipe(dest(destFiles.cssFiles))
 }
 
 //JS 
 function js(){
     return src(srcFiles.js)
-        .pipe(uglify())
-        .pipe(concat('libraries.min.js'))
+        // .pipe(uglify())
+        .pipe(concat('lib.js'))
         .pipe(dest(destFiles.jsFiles))
 }
 
